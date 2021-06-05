@@ -1,0 +1,12 @@
+﻿@using HtmlHelpers.BeginCollectionItem
+@model BeginCollectionItem.Mvc3Demo.Models.OrderModel.OrderItemModel
+@{
+    if (ViewContext.FormContext == null)
+    {
+        ViewContext.FormContext = new FormContext();
+    }
+}
+@using (Html.BeginCollectionItem("Items"))
+{
+    @Html.EditorForModel()
+}

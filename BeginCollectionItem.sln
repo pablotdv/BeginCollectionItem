@@ -1,8 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeginCollectionItem", "BeginCollectionItem\BeginCollectionItem.csproj", "{CF17966C-80C2-4ABE-BD0B-F58AEF0DDB05}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85C16142-EC9A-460E-A3DF-C085C71984D8}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -18,14 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A7E4D8
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeginCollectionItem.Tests", "BeginCollectionItem.Tests\BeginCollectionItem.Tests.csproj", "{4EB8623B-A836-42D1-B90C-00886750101B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeginCollectionItem", "BeginCollectionItem\BeginCollectionItem.csproj", "{CF17966C-80C2-4ABE-BD0B-F58AEF0DDB05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeginCollectionItem.Tests", "BeginCollectionItem.Tests\BeginCollectionItem.Tests.csproj", "{4EB8623B-A836-42D1-B90C-00886750101B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeginCollectionItem.Mvc3Demo", "BeginCollectionItem.Mvc3Demo\BeginCollectionItem.Mvc3Demo.csproj", "{163E0179-DD7E-4CF7-B28F-FEC7C888D987}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = BeginCollectionItem.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -46,5 +45,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C1D9439-4940-47B1-8BCE-5568EB4E024F}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BeginCollectionItem.vsmdi
 	EndGlobalSection
 EndGlobal

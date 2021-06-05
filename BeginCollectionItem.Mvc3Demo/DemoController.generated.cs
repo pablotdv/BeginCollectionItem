@@ -20,45 +20,8 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace BeginCollectionItem.Mvc3Demo.Controllers {
-    public partial class DemoController {
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public DemoController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected DemoController(Dummy d) { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected RedirectToRouteResult RedirectToAction(ActionResult result) {
-            var callInfo = result.GetT4MVCResult();
-            return RedirectToRoute(callInfo.RouteValueDictionary);
-        }
-
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public DemoController Actions { get { return MVC.Demo; } }
-        [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Area = "";
-        [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "Demo";
-        [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "Demo";
-
-        static readonly ActionNamesClass s_actions = new ActionNamesClass();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionNamesClass ActionNames { get { return s_actions; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionNamesClass {
-            public readonly string Order = "Order";
-            public readonly string OrderItem = "OrderItem";
-        }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionNameConstants {
-            public const string Order = "Order";
-            public const string OrderItem = "OrderItem";
-        }
-
+namespace T4MVC {
+    public class DemoController {
 
         static readonly ViewNames s_views = new ViewNames();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -76,27 +39,6 @@ namespace BeginCollectionItem.Mvc3Demo.Controllers {
         }
     }
 
-    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public class T4MVC_DemoController: BeginCollectionItem.Mvc3Demo.Controllers.DemoController {
-        public T4MVC_DemoController() : base(Dummy.Instance) { }
-
-        public override System.Web.Mvc.ViewResult Order() {
-            var callInfo = new T4MVC_ViewResult(Area, Name, ActionNames.Order);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.ViewResult Order(BeginCollectionItem.Mvc3Demo.Models.OrderModel model) {
-            var callInfo = new T4MVC_ViewResult(Area, Name, ActionNames.Order);
-            callInfo.RouteValueDictionary.Add("model", model);
-            return callInfo;
-        }
-
-        public override System.Web.Mvc.PartialViewResult OrderItem() {
-            var callInfo = new T4MVC_PartialViewResult(Area, Name, ActionNames.OrderItem);
-            return callInfo;
-        }
-
-    }
 }
 
 #endregion T4MVC

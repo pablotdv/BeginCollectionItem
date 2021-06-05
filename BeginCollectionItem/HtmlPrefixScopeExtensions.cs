@@ -1,8 +1,8 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System;
-using System.IO;
-using System.Web.Mvc;
-using System.Web;
 using System.Collections.Generic;
+using System.IO;
 
 namespace HtmlHelpers.BeginCollectionItem
 {
@@ -10,12 +10,12 @@ namespace HtmlHelpers.BeginCollectionItem
     {
         private const string IdsToReuseKey = "__htmlPrefixScopeExtensions_IdsToReuse_";
 
-        public static IDisposable BeginCollectionItem(this HtmlHelper html, string collectionName)
+        public static IDisposable BeginCollectionItem(this IHtmlHelper html, string collectionName)
         {
             return BeginCollectionItem(html, collectionName, html.ViewContext.Writer);
         }
 
-        public static IDisposable BeginCollectionItem(this HtmlHelper html, string collectionName, TextWriter writer)
+        public static IDisposable BeginCollectionItem(this IHtmlHelper html, string collectionName, TextWriter writer)
         {
             var idsToReuse = GetIdsToReuse(html.ViewContext.HttpContext, collectionName);
             var itemIndex = idsToReuse.Count > 0 ? idsToReuse.Dequeue() : Guid.NewGuid().ToString();
@@ -30,22 +30,26 @@ namespace HtmlHelpers.BeginCollectionItem
             return BeginHtmlFieldPrefixScope(html, string.Format("{0}[{1}]", collectionName, itemIndex));
         }
 
-        public static IDisposable BeginHtmlFieldPrefixScope(this HtmlHelper html, string htmlFieldPrefix)
+        public static IDisposable BeginHtmlFieldPrefixScope(this IHtmlHelper html, string htmlFieldPrefix)
         {
             return new HtmlFieldPrefixScope(html.ViewData.TemplateInfo, htmlFieldPrefix);
         }
 
-        private static Queue<string> GetIdsToReuse(HttpContextBase httpContext, string collectionName)
+        private static Queue<string> GetIdsToReuse(Microsoft.AspNetCore.Http.HttpContext httpContext, string collectionName)
         {
             // We need to use the same sequence of IDs following a server-side validation failure,
             // otherwise the framework won't render the validation error messages next to each item.
             var key = IdsToReuseKey + collectionName;
-            var queue = (Queue<string>)httpContext.Items[key];
-            if (queue == null) {
+
+            var hasKey = httpContext.Items.ContainsKey(key);
+
+            var queue = hasKey ? (Queue<string>)httpContext.Items[key] : null;
+            if (queue == null)
+            {
                 httpContext.Items[key] = queue = new Queue<string>();
-                var previouslyUsedIds = httpContext.Request[collectionName + ".index"];
+                var previouslyUsedIds = httpContext.Request.Form[collectionName + ".index"];
                 if (!string.IsNullOrEmpty(previouslyUsedIds))
-                    foreach (var previouslyUsedId in previouslyUsedIds.Split(','))
+                    foreach (var previouslyUsedId in previouslyUsedIds.ToString().Split(','))
                         queue.Enqueue(previouslyUsedId);
             }
             return queue;

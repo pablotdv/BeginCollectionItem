@@ -23,9 +23,9 @@ using T4MVC;
 
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static class MVC {
-    public static BeginCollectionItem.Mvc3Demo.Controllers.AccountController Account = new BeginCollectionItem.Mvc3Demo.Controllers.T4MVC_AccountController();
-    public static BeginCollectionItem.Mvc3Demo.Controllers.DemoController Demo = new BeginCollectionItem.Mvc3Demo.Controllers.T4MVC_DemoController();
-    public static BeginCollectionItem.Mvc3Demo.Controllers.HomeController Home = new BeginCollectionItem.Mvc3Demo.Controllers.T4MVC_HomeController();
+    public static T4MVC.AccountController Account = new T4MVC.AccountController();
+    public static T4MVC.DemoController Demo = new T4MVC.DemoController();
+    public static T4MVC.HomeController Home = new T4MVC.HomeController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -285,38 +285,6 @@ public interface IT4MVCActionResult {
 }   
   
 
-[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-public class T4MVC_ActionResult : System.Web.Mvc.ActionResult, IT4MVCActionResult {
-    public T4MVC_ActionResult(string area, string controller, string action): base()  {
-        this.InitMVCT4Result(area, controller, action);
-    }
-     
-    public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
-    
-    public string Controller { get; set; }
-    public string Action { get; set; }
-    public RouteValueDictionary RouteValueDictionary { get; set; }
-}
-[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-public class T4MVC_ViewResult : System.Web.Mvc.ViewResult, IT4MVCActionResult {
-    public T4MVC_ViewResult(string area, string controller, string action): base()  {
-        this.InitMVCT4Result(area, controller, action);
-    }
-    
-    public string Controller { get; set; }
-    public string Action { get; set; }
-    public RouteValueDictionary RouteValueDictionary { get; set; }
-}
-[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-public class T4MVC_PartialViewResult : System.Web.Mvc.PartialViewResult, IT4MVCActionResult {
-    public T4MVC_PartialViewResult(string area, string controller, string action): base()  {
-        this.InitMVCT4Result(area, controller, action);
-    }
-    
-    public string Controller { get; set; }
-    public string Action { get; set; }
-    public RouteValueDictionary RouteValueDictionary { get; set; }
-}
 
 
 
